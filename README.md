@@ -65,7 +65,7 @@ func (u *rpcUseCase) RequestData(ctx context.Context, payload string) (string, e
 	return response, nil
 }
 ```
-###Repository (Requester Communication)
+### Repository (Requester Communication)
 ```go
 package rabbitmq
 
@@ -162,7 +162,7 @@ func (h *RPCHandler) HandleRequest(payload string) {
 }
 ```
 ## 2. Service B (Responder)
-Use Case (Responder Logic)
+### Use Case (Responder Logic)
 ```go
 package usecase
 
@@ -233,7 +233,7 @@ func (w *RPCWorker) Start(ch *amqp.Channel) {
 	}
 }
 ```
-Ringkasan Alur
+# Ringkasan Alur
 1. **Requester (Service A)**:
 
 - Delivery layer menerima trigger dari klien (misalnya HTTP - request).
