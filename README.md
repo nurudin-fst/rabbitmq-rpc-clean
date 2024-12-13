@@ -160,8 +160,9 @@ func (h *RPCHandler) HandleRequest(payload string) {
 	}
 	log.Printf("RPC Response: %s", response)
 }
+```
 2. Service B (Responder)
-Use Case (Responder Logic)```
+Use Case (Responder Logic)
 ```go
 package usecase
 
@@ -179,7 +180,9 @@ func (u *rpcResponderUseCase) ProcessRequest(payload string) (string, error) {
 	// Simulasi logika bisnis
 	return "Processed: " + payload, nil
 }
-Delivery (RPC Worker)```
+```
+Delivery (RPC Worker)
+
 ```go
 package delivery
 
