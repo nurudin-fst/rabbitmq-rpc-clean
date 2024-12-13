@@ -29,7 +29,7 @@ project/
 └── main.go             # Entry point aplikasi
 ```
 # Implementasi
-1. Service A (Requester)
+## 1. Service A (Requester)
 Use Case (Requester Logic)
 ```go
 package usecase
@@ -65,7 +65,7 @@ func (u *rpcUseCase) RequestData(ctx context.Context, payload string) (string, e
 	return response, nil
 }
 ```
-## Repository (Requester Communication)
+###Repository (Requester Communication)
 ```go
 package rabbitmq
 
@@ -133,7 +133,7 @@ func (r *rpcRepository) SendRPCRequest(ctx context.Context, payload string) (str
 	}
 }
 ```
-## Delivery Layer (Trigger Use Case)
+### Delivery Layer (Trigger Use Case)
 
 ```go
 package delivery
@@ -161,7 +161,7 @@ func (h *RPCHandler) HandleRequest(payload string) {
 	log.Printf("RPC Response: %s", response)
 }
 ```
-2. Service B (Responder)
+## 2. Service B (Responder)
 Use Case (Responder Logic)
 ```go
 package usecase
@@ -181,7 +181,7 @@ func (u *rpcResponderUseCase) ProcessRequest(payload string) (string, error) {
 	return "Processed: " + payload, nil
 }
 ```
-Delivery (RPC Worker)
+### Delivery (RPC Worker)
 
 ```go
 package delivery
